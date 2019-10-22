@@ -1,0 +1,1 @@
+export const apiUrl = 'http://fake-hotel-api.herokuapp.com/api';
