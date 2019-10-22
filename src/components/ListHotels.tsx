@@ -1,37 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import Hotel from "./Hotel";
 import {apiUrl} from "../config";
 import {HotelData} from "../types";
 
-interface ListHotelsState {
-    hotels: HotelData[]
-}
+const ListHotels: React.FC = () => {
+    const [hotels, setHotels] = useState<HotelData[]>([]);
 
-class ListHotels extends React.Component<{}, ListHotelsState> {
-
-    constructor(props: any) {
-        super(props);
-
-        this.state = {
-            hotels: []
-        }
-    }
-
-    loadHotels() {
+    function loadHotels() {
         axios.get(`${apiUrl}/hotels`)
-            .then(res => this.setState({hotels: res.data}))
+            .then((res: any) => setHotels(res.data))
             .catch((error) => console.log(error));
     }
 
-    render() {
-        return (
-            <div>
-                <button onClick={() => this.loadHotels()}>Load Hotels</button>
-                {this.state.hotels.map((hotel) => <Hotel key={hotel.id} {...hotel}/>)}
-            </div>
-        );
-    }
-}
+    return (
+        <div>
+            <button onClick={() => loadHotels()}>Load Hotels</button>
+            {hotels.map((hotel) => <Hotel key={hotel.id} {...hotel}/>)}
+        </div>
+    );
+};
 
 export default ListHotels;
