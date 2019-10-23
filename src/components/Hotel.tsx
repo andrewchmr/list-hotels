@@ -21,23 +21,32 @@ function Hotel(props: HotelData) {
         setReviews([]);
     }
 
-    function showReviewsSection() {
+    const ReviewsList = () => {
+        if (reviews.length > 0) {
+            return <div>{reviews.map((review, index) =>
+                <Review key={index} {...review}/>)}</div>
+        } else {
+            return <p>No reviews</p>
+        }
+    };
+
+    const ReviewsSection = () => {
         const {id} = props;
         if (!showReviews) {
             return <button onClick={() => loadReview(id)}>Show review</button>
         } else {
             return <div>
                 <button onClick={() => hideReviews()}>Hide review</button>
-                {reviews.map((review, index) => <Review key={index} {...review}/>)}</div>
+                <ReviewsList/></div>
         }
-    }
+    };
 
     const {name, city, price, images, data_start, data_end, stars, rating, description} = props;
     return <div className={'container'}>
         <h1>{name}</h1>
         <h2>{city}</h2>
         <img width={200} height={200} src={placeholder}/>
-        {showReviewsSection()}
+        <ReviewsSection/>
     </div>
 }
 
