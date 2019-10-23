@@ -6,9 +6,11 @@ import {HotelData} from "../types";
 
 const ListHotels: React.FC = () => {
     const [hotels, setHotels] = useState<HotelData[]>([]);
-    const [error, setError] = useState('');
+    const [error, setError] = useState<string>('');
+    const [loading, setLoading] = useState<boolean>(false);
 
     function loadHotels() {
+        setLoading(true);
         axios.get(`${apiUrl}/hotels?count=5`)
             .then((res: any) => handleResponse(res))
             .catch((error) => handleError(error));
@@ -16,12 +18,14 @@ const ListHotels: React.FC = () => {
 
     function handleResponse(res: any) {
         error && setError('');
-        setHotels(res.data)
+        setHotels(res.data);
+        setLoading(false);
     }
 
     function handleError(error: string) {
         setHotels([]);
         setError("An error occurred");
+        setLoading(false);
         console.log(error);
     }
 
@@ -29,10 +33,15 @@ const ListHotels: React.FC = () => {
         return error ? <div>{error}</div> : null;
     };
 
+    const Spinner = () => {
+        return loading ? <div className={'loader loader-big'}/> : null;
+    };
+
     return (
         <div>
             <button onClick={() => loadHotels()}>Load Hotels</button>
             <Error/>
+            <Spinner/>
             {hotels.map((hotel) => <Hotel key={hotel.id} {...hotel}/>)}
         </div>
     );
