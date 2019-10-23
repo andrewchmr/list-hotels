@@ -41,10 +41,23 @@ function Hotel(props: HotelData) {
         }
     };
 
+    const Stars = () => {
+        const starTotal = 5;
+        const starPercentage = (stars / starTotal) * 100;
+        const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
+
+        return <div className="rating">
+            <div className="stars-outer">
+                <div className="stars-inner" style={{width: starPercentageRounded}}/>
+            </div>
+        </div>
+    };
+
     const {name, city, price, images, data_start, data_end, stars, rating, description} = props;
     return <div className={'container'}>
         <h1>{name}</h1>
         <h2>{city}</h2>
+        <Stars/>
         <img width={200} height={200} src={placeholder}/>
         <ReviewsSection/>
     </div>
