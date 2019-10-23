@@ -21,6 +21,10 @@ function Hotel(props: HotelData) {
         setReviews([]);
     }
 
+    function getGermanFormatDate(date: string): string {
+        return new Date(date).toLocaleDateString('de-DE');
+    }
+
     const ReviewsList = () => {
         if (reviews.length > 0) {
             return <div>{reviews.map((review, index) =>
@@ -53,11 +57,12 @@ function Hotel(props: HotelData) {
         </div>
     };
 
-    const {name, city, price, images, data_start, data_end, stars, rating, description} = props;
+    const {name, city, price, images, date_start, date_end, stars, rating, description} = props;
     return <div className={'container'}>
         <h1>{name}</h1>
         <h2>{city}</h2>
         <Stars/>
+        <p>{getGermanFormatDate(date_start)} - {getGermanFormatDate(date_end)}</p>
         <img width={200} height={200} src={placeholder}/>
         <ReviewsSection/>
     </div>

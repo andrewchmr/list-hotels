@@ -4,8 +4,8 @@ export interface HotelData {
     city: string,
     price: number,
     images: string[],
-    data_start: string,
-    data_end: string,
+    date_start: string,
+    date_end: string,
     stars: number,
     rating: number,
     description: string
