@@ -8,7 +8,7 @@ const ListHotels: React.FC = () => {
     const [hotels, setHotels] = useState<HotelData[]>([]);
 
     function loadHotels() {
-        axios.get(`${apiUrl}/hotels`)
+        axios.get(`${apiUrl}/hotels?count=5`)
             .then((res: any) => setHotels(res.data))
             .catch((error) => console.log(error));
     }
