@@ -3,6 +3,7 @@ import axios from "axios";
 import {apiUrl} from "../config";
 import {HotelData, ReviewData} from "../types";
 import Review from "./Review";
+import placeholder from '../placeholder.jpg';
 
 function Hotel(props: HotelData) {
     const [reviews, setReviews] = useState<ReviewData[]>([]);
@@ -32,9 +33,10 @@ function Hotel(props: HotelData) {
     }
 
     const {name, city, price, images, data_start, data_end, stars, rating, description} = props;
-    return <div>
+    return <div className={'container'}>
         <h1>{name}</h1>
         <h2>{city}</h2>
+        <img width={200} height={200} src={placeholder}/>
         {showReviewsSection()}
     </div>
 }
