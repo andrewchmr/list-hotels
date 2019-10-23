@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import axios from "axios";
 import {apiUrl} from "../config";
 import {HotelData, ReviewData} from "../types";
-import Review from "./Review";
 import placeholder from '../placeholder.jpg';
 
 function Hotel(props: HotelData) {
@@ -32,6 +31,11 @@ function Hotel(props: HotelData) {
         } else {
             return <p>No reviews</p>
         }
+    };
+
+    const Review = (review: ReviewData) => {
+        const {name, comment, positive} = review;
+        return <div><h1>{name}</h1><h2>{comment}</h2></div>
     };
 
     const ReviewsSection = () => {
