@@ -55,11 +55,14 @@ function Hotel(props: HotelData) {
     const Button = () => {
         const {id} = props;
         if (!showReviews) {
-            return <div><a className={'button align-items-center'} onClick={() => loadReview(id)}>Show
-                reviews</a></div>
+            return <div>
+                <button className={'button align-items-center'} onClick={() => loadReview(id)}>Show
+                    reviews
+                </button>
+            </div>
         } else {
             return <div>
-                <a className={'button align-items-center'} onClick={() => hideReviews()}>Hide reviews</a>
+                <button className={'button align-items-center'} onClick={() => hideReviews()}>Hide reviews</button>
             </div>
         }
     };

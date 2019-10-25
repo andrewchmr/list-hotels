@@ -41,7 +41,7 @@ const ListHotels: React.FC = () => {
 
     const LoadButton = () => {
         return <div className={'text-align mt-60 mb-40'}>
-            <a onClick={() => loadHotels()} className="button">Load Hotels</a>
+            <button onClick={() => loadHotels()} className="button">Load Hotels</button>
         </div>
     };
 
