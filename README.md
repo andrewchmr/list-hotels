@@ -6,6 +6,8 @@ Demo: https://andrewchmr.github.io/list-hotels/
 
 ![alt text](https://github.com/andrewchmr/list-hotels/blob/master/list-hotels.png?raw=true)
 
+<hr/>
+
 ![alt text](https://github.com/andrewchmr/list-hotels/blob/master/list-hotels2.png?raw=true)
 
 ## Available Scripts
