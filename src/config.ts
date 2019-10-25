@@ -1,1 +1,1 @@
-export const apiUrl = 'http://fake-hotel-api.herokuapp.com/api';
+export const apiUrl = 'https://fake-hotel-api.herokuapp.com/api';
