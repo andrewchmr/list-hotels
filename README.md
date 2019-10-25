@@ -2,6 +2,8 @@
 
 This app loads list of hotels from fake API and shows it.
 
+**Note**: I used template for images instead of images from API because lorempixel.com was down for the time of implementing it.
+
 Demo: https://andrewchmr.github.io/list-hotels/
 
 ![alt text](https://github.com/andrewchmr/list-hotels/blob/master/list-hotels.png?raw=true)
