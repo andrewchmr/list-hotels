@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8d2a9ea757a079aa7f7eb562e2b29234",
+    "revision": "6f294b68b6355cb10f7e08ae1b4d9561",
     "url": "/list-hotels/index.html"
   },
   {
-    "revision": "b1f063d5d5f66b8a9c67",
+    "revision": "142f07d8d7e0dbb77826",
     "url": "/list-hotels/static/css/main.52352d61.chunk.css"
   },
   {
-    "revision": "c16d79c247d0f39e0151",
-    "url": "/list-hotels/static/js/2.1576f125.chunk.js"
+    "revision": "7a759650bd54676fe9eb",
+    "url": "/list-hotels/static/js/2.dee07841.chunk.js"
   },
   {
-    "revision": "b1f063d5d5f66b8a9c67",
-    "url": "/list-hotels/static/js/main.0fe97546.chunk.js"
+    "revision": "142f07d8d7e0dbb77826",
+    "url": "/list-hotels/static/js/main.03ee23c9.chunk.js"
   },
   {
     "revision": "38ab686389b3ff08dcd8",
