@@ -2,11 +2,11 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import './spinner.css';
-import './container.css';
-import './button.css';
-import './stars.css';
+import './styles/index.css';
+import './styles/spinner.css';
+import './styles/container.css';
+import './styles/button.css';
+import './styles/stars.css';
 import * as serviceWorker from './serviceWorker';
 import ListHotels from "./components/ListHotels";
 
