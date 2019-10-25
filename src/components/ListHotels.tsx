@@ -30,7 +30,9 @@ const ListHotels: React.FC = () => {
     }
 
     const Error = () => {
-        return error ? <div>{error}</div> : null;
+        return error ? <div className={'msg-box'}>
+            <div className={'error'}>{error}</div>
+        </div> : null;
     };
 
     const Spinner = () => {
@@ -38,13 +40,13 @@ const ListHotels: React.FC = () => {
     };
 
     const LoadButton = () => {
-        return <div className={'button-load'}>
-            <button onClick={() => loadHotels()}>Load Hotels</button>
+        return <div className={'text-align mt-60 mb-40'}>
+            <a onClick={() => loadHotels()} className="button">Load Hotels</a>
         </div>
     };
 
     const HotelsList = () => {
-        return <div>{hotels.map((hotel) => <Hotel key={hotel.id} {...hotel}/>)}</div>
+        return <ul className={'list-hotels'}>{hotels.map((hotel) => <Hotel key={hotel.id} {...hotel}/>)}</ul>
     };
 
     return (

@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './spinner.css';
 import './container.css';
+import './button.css';
+import './stars.css';
 import * as serviceWorker from './serviceWorker';
 import ListHotels from "./components/ListHotels";
 

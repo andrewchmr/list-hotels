@@ -2,6 +2,7 @@ export interface HotelData {
     id: string,
     name: string,
     city: string,
+    country: string,
     price: number,
     images: string[],
     date_start: string,

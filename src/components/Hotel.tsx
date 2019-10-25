@@ -2,10 +2,9 @@ import React, {useState} from "react";
 import axios from "axios";
 import {apiUrl} from "../config";
 import {HotelData, ReviewData} from "../types";
-import placeholder from '../placeholder.jpg';
 
 function Hotel(props: HotelData) {
-    const [reviews, setReviews] = useState<ReviewData[]>([]);
+    const [reviews, setReviews] = useState<ReviewData[] | null>(null);
     const [showReviews, setShowReviews] = useState<boolean>(false);
 
     function loadReview(hotelId: string) {
@@ -17,7 +16,7 @@ function Hotel(props: HotelData) {
 
     function hideReviews() {
         setShowReviews(false);
-        setReviews([]);
+        setReviews(null);
     }
 
     function getGermanFormatDate(date: string): string {
@@ -25,27 +24,43 @@ function Hotel(props: HotelData) {
     }
 
     const ReviewsList = () => {
-        if (reviews.length > 0) {
-            return <div>{reviews.map((review, index) =>
-                <Review key={index} {...review}/>)}</div>
+        if (reviews) {
+            if (reviews.length > 0) {
+                return <ul className={'list-reviews'}>{reviews.map((review, index) =>
+                    <Review key={index} {...review}/>)}</ul>
+            } else {
+                return <div className={'bg-lightgray p-10'}><p className={'title'}>No reviews</p>
+                </div>
+            }
         } else {
-            return <p>No reviews</p>
+            return null;
         }
     };
 
     const Review = (review: ReviewData) => {
         const {name, comment, positive} = review;
-        return <div><h1>{name}</h1><h2>{comment}</h2></div>
+        const iconClass = positive ? 'plus' : 'minus';
+        return <div className={'overflow-hidden'}>
+            <li className={'d-flex'}>
+                <div className={'review-icon'}>
+                    <i className={`fa fa-${iconClass}-circle`}/></div>
+                <div className={'review-content'}>
+                    <p className={'title'}>{name}</p>
+                    <p>{comment}</p>
+                </div>
+            </li>
+        </div>
     };
 
-    const ReviewsSection = () => {
+    const Button = () => {
         const {id} = props;
         if (!showReviews) {
-            return <button onClick={() => loadReview(id)}>Show review</button>
+            return <div><a className={'button align-items-center'} onClick={() => loadReview(id)}>Show
+                reviews</a></div>
         } else {
             return <div>
-                <button onClick={() => hideReviews()}>Hide review</button>
-                <ReviewsList/></div>
+                <a className={'button align-items-center'} onClick={() => hideReviews()}>Hide reviews</a>
+            </div>
         }
     };
 
@@ -54,22 +69,43 @@ function Hotel(props: HotelData) {
         const starPercentage = (stars / starTotal) * 100;
         const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
 
-        return <div className="rating">
+        return <div className="rating element-right">
             <div className="stars-outer">
                 <div className="stars-inner" style={{width: starPercentageRounded}}/>
             </div>
         </div>
     };
 
-    const {name, city, price, images, date_start, date_end, stars, rating, description} = props;
-    return <div>
-        <h1>{name}</h1>
-        <h2>{city}</h2>
-        <Stars/>
-        <p>{getGermanFormatDate(date_start)} - {getGermanFormatDate(date_end)}</p>
-        <img width={200} height={200} src={placeholder}/>
-        <ReviewsSection/>
-    </div>
+    const HotelDescription = () => {
+        return <div className={'hotel-desc'}>
+            <div>
+                <p className={'title'}>{name}</p>
+                <Stars/>
+            </div>
+            <p>{city} - {country}</p>
+            <p className={'pt-10'}>{description}</p>
+            <div className={'mt-40 mb-40'}>
+                <Button/>
+                <div className={'element-right'}>
+                    <p className={'font-size-40'}>{price} &euro;</p>
+                    <p>{getGermanFormatDate(date_start)} - {getGermanFormatDate(date_end)}</p>
+                </div>
+            </div>
+        </div>
+    };
+
+    const Image = () => {
+        return <div className={'image-section ratio-4-3'}/>
+    };
+
+    const {name, city, price, date_start, date_end, stars, country, description} = props;
+    return <li>
+        <div className={'d-flex flex-wrap'}>
+            <Image/>
+            <HotelDescription/>
+        </div>
+        <ReviewsList/>
+    </li>
 }
 
 export default Hotel;
