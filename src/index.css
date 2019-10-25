@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+.button-load {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .stars-outer {
     display: inline-block;
     position: relative;

@@ -37,12 +37,22 @@ const ListHotels: React.FC = () => {
         return loading ? <div className={'loader loader-big'}/> : null;
     };
 
-    return (
-        <div>
+    const LoadButton = () => {
+        return <div className={'button-load'}>
             <button onClick={() => loadHotels()}>Load Hotels</button>
+        </div>
+    };
+
+    const HotelsList = () => {
+        return <div>{hotels.map((hotel) => <Hotel key={hotel.id} {...hotel}/>)}</div>
+    };
+
+    return (
+        <div className={'container'}>
+            <LoadButton/>
             <Error/>
             <Spinner/>
-            {hotels.map((hotel) => <Hotel key={hotel.id} {...hotel}/>)}
+            <HotelsList/>
         </div>
     );
 };

@@ -62,7 +62,7 @@ function Hotel(props: HotelData) {
     };
 
     const {name, city, price, images, date_start, date_end, stars, rating, description} = props;
-    return <div className={'container'}>
+    return <div>
         <h1>{name}</h1>
         <h2>{city}</h2>
         <Stars/>
