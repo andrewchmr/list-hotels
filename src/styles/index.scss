@@ -46,17 +46,17 @@ code {
 .list-hotels {
   list-style-type: none;
   padding-left: 0;
-}
 
-.list-hotels > li {
-  overflow: hidden;
-  margin: 0 0 10px 0;
-  border: 1px solid #dddddd;
-  border-radius: 10px;
-}
+  & > li {
+    overflow: hidden;
+    margin: 0 0 10px 0;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+  }
 
-.list-hotels > li:last-child {
-  border: none;
+  & > li:last-child {
+    border: none;
+  }
 }
 
 .image-section {
