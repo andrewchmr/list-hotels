@@ -12,10 +12,6 @@ code {
   monospace;
 }
 
-.text-align {
-  text-align: center;
-}
-
 .hotel-desc > div {
   display: flex;
 }
@@ -24,81 +20,13 @@ code {
   margin: 0;
 }
 
-.font-size-40 {
-  font-size: 40px;
-}
-
-.pt-10 {
-  padding-top: 10px;
-}
-
-.mt-60 {
-  margin-top: 60px;
-}
-
-.mt-40 {
-  margin-top: 40px;
-}
-
-.mb-40 {
-  margin-bottom: 40px;
-}
-
-.d-flex {
-  display: flex;
-}
-
-.attribution {
-  font-size: 12px;
-  color: #444;
-  text-decoration: none;
-  text-align: center;
-  position: fixed;
-  right: 10px;
-  bottom: 10px;
-  z-index: -1;
-}
-
-.attribution:hover {
-  color: #1fa67a;
-}
-
-.bg-lightgray {
-  background-color: lightgray;
-}
-
 .title {
   font-size: 20px;
   font-weight: 500;
 }
 
-.element-right {
-  margin-left: auto;
-  text-align: end;
-}
-
-.m-0 {
-  margin: 0;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-.p-10 {
-  padding: 10px;
-}
-
-.align-items-center {
-  align-items: center;
-}
-
 .fa-plus-circle, .fa-minus-circle {
   font-size: 30px;
-}
-
-.overflow-hidden {
-  overflow: hidden;
 }
 
 .msg-box {
@@ -112,7 +40,12 @@ code {
   }
 }
 
-.main-section__button{
+.hotel__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main-section__button {
   text-align: center;
   margin-top: 60px;
   margin-bottom: 40px;

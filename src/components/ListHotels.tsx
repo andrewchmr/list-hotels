@@ -49,13 +49,17 @@ const ListHotels: React.FC = () => {
         return <ul className={'list-hotels'}>{hotels.map((hotel) => <Hotel key={hotel.id} {...hotel}/>)}</ul>
     };
 
+    const Wrapper = (props: any) => {
+        return <div className={'container'}>{props.children}</div>
+    };
+
     return (
-        <div className={'container'}>
+        <Wrapper>
             <LoadButton/>
             <Error/>
             <Spinner/>
             <HotelsList/>
-        </div>
+        </Wrapper>
     );
 };
 

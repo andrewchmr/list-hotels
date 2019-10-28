@@ -101,12 +101,16 @@ function Hotel(props: HotelData) {
         return <div className={'image-section image-section--ratio-4-3'}/>
     };
 
+    const Wrapper = (props: any) => {
+        return <div className={'hotel__wrapper'}>{props.children}</div>
+    };
+
     const {name, city, price, date_start, date_end, stars, country, description} = props;
     return <li>
-        <div className={'d-flex flex-wrap'}>
+        <Wrapper>
             <Image/>
             <HotelDescription/>
-        </div>
+        </Wrapper>
         <ReviewsList/>
     </li>
 }
