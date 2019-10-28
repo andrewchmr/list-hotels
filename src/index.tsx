@@ -3,10 +3,10 @@ import "regenerator-runtime/runtime";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
-import './styles/spinner.css';
-import './styles/container.css';
-import './styles/button.css';
-import './styles/stars.css';
+import './styles/spinner.scss';
+import './styles/container.scss';
+import './styles/button.scss';
+import './styles/stars.scss';
 import * as serviceWorker from './serviceWorker';
 import ListHotels from "./components/ListHotels";
 

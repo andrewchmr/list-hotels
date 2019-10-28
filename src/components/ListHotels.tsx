@@ -36,7 +36,7 @@ const ListHotels: React.FC = () => {
     };
 
     const Spinner = () => {
-        return loading ? <div className={'loader loader-big'}/> : null;
+        return loading ? <div className={'loader loader--big'}/> : null;
     };
 
     const LoadButton = () => {

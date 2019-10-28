@@ -73,8 +73,8 @@ function Hotel(props: HotelData) {
         const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
 
         return <div className="rating element-right">
-            <div className="stars-outer">
-                <div className="stars-inner" style={{width: starPercentageRounded}}/>
+            <div className="stars--outer">
+                <div className="stars--inner" style={{width: starPercentageRounded}}/>
             </div>
         </div>
     };
