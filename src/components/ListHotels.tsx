@@ -31,7 +31,7 @@ const ListHotels: React.FC = () => {
 
     const Error = () => {
         return error ? <div className={'msg-box'}>
-            <div className={'error'}>{error}</div>
+            <div className={'msg-box--error'}>{error}</div>
         </div> : null;
     };
 
@@ -40,7 +40,7 @@ const ListHotels: React.FC = () => {
     };
 
     const LoadButton = () => {
-        return <div className={'text-align mt-60 mb-40'}>
+        return <div className={'main-section__button'}>
             <button onClick={() => loadHotels()} className="button">Load Hotels</button>
         </div>
     };

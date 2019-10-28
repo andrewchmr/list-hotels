@@ -29,7 +29,7 @@ function Hotel(props: HotelData) {
                 return <ul className={'list-reviews'}>{reviews.map((review, index) =>
                     <Review key={index} {...review}/>)}</ul>
             } else {
-                return <div className={'bg-lightgray p-10'}><p className={'title'}>No reviews</p>
+                return <div className={'list-reviews--empty'}><p className={'title'}>No reviews</p>
                 </div>
             }
         } else {
@@ -40,11 +40,11 @@ function Hotel(props: HotelData) {
     const Review = (review: ReviewData) => {
         const {name, comment, positive} = review;
         const iconClass = positive ? 'plus' : 'minus';
-        return <div className={'overflow-hidden'}>
-            <li className={'d-flex'}>
-                <div className={'review-icon'}>
+        return <div className={'review'}>
+            <li>
+                <div className={'review__icon'}>
                     <i className={`fa fa-${iconClass}-circle`}/></div>
-                <div className={'review-content'}>
+                <div className={'review__content'}>
                     <p className={'title'}>{name}</p>
                     <p>{comment}</p>
                 </div>
@@ -56,13 +56,13 @@ function Hotel(props: HotelData) {
         const {id} = props;
         if (!showReviews) {
             return <div>
-                <button className={'button align-items-center'} onClick={() => loadReview(id)}>Show
+                <button className={'button button--center'} onClick={() => loadReview(id)}>Show
                     reviews
                 </button>
             </div>
         } else {
             return <div>
-                <button className={'button align-items-center'} onClick={() => hideReviews()}>Hide reviews</button>
+                <button className={'button button--center'} onClick={() => hideReviews()}>Hide reviews</button>
             </div>
         }
     };
@@ -72,7 +72,7 @@ function Hotel(props: HotelData) {
         const starPercentage = (stars / starTotal) * 100;
         const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
 
-        return <div className="rating element-right">
+        return <div className="stars">
             <div className="stars--outer">
                 <div className="stars--inner" style={{width: starPercentageRounded}}/>
             </div>
@@ -86,11 +86,11 @@ function Hotel(props: HotelData) {
                 <Stars/>
             </div>
             <p>{city} - {country}</p>
-            <p className={'pt-10'}>{description}</p>
-            <div className={'mt-40 mb-40'}>
+            <p className={'hotel-desc__description'}>{description}</p>
+            <div className={'hotel-desc__down-section'}>
                 <Button/>
-                <div className={'element-right'}>
-                    <p className={'font-size-40'}>{price} &euro;</p>
+                <div className={'hotel-desc__price-date'}>
+                    <p className={'hotel-desc__price'}>{price} &euro;</p>
                     <p>{getGermanFormatDate(date_start)} - {getGermanFormatDate(date_end)}</p>
                 </div>
             </div>
@@ -98,7 +98,7 @@ function Hotel(props: HotelData) {
     };
 
     const Image = () => {
-        return <div className={'image-section ratio-4-3'}/>
+        return <div className={'image-section image-section--ratio-4-3'}/>
     };
 
     const {name, city, price, date_start, date_end, stars, country, description} = props;

@@ -2,7 +2,7 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.css';
+import './styles/index.scss';
 import './styles/spinner.scss';
 import './styles/container.scss';
 import './styles/button.scss';
