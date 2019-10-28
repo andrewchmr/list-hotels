@@ -81,17 +81,17 @@ function Hotel(props: HotelData) {
 
     const HotelDescription = () => {
         return <div className={'hotel-desc'}>
-            <div>
-                <p className={'title'}>{name}</p>
+            <div className={'hotel-desc__up-section'}>
+                <p className={'title hotel-desc__text'}>{name}</p>
                 <Stars/>
             </div>
-            <p>{city} - {country}</p>
+            <p className={'hotel-desc__text'}>{city} - {country}</p>
             <p className={'hotel-desc__description'}>{description}</p>
             <div className={'hotel-desc__down-section'}>
                 <Button/>
                 <div className={'hotel-desc__price-date'}>
                     <p className={'hotel-desc__price'}>{price} &euro;</p>
-                    <p>{getGermanFormatDate(date_start)} - {getGermanFormatDate(date_end)}</p>
+                    <p className={'hotel-desc__text'}>{getGermanFormatDate(date_start)} - {getGermanFormatDate(date_end)}</p>
                 </div>
             </div>
         </div>

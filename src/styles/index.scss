@@ -12,14 +12,6 @@ code {
   monospace;
 }
 
-.hotel-desc > div {
-  display: flex;
-}
-
-.hotel-desc p {
-  margin: 0;
-}
-
 .title {
   font-size: 20px;
   font-weight: 500;
@@ -93,11 +85,21 @@ code {
 
   & .hotel-desc__description {
     padding-top: 10px;
+    margin: 0;
+  }
+
+  & .hotel-desc__up-section {
+    display: flex;
+  }
+
+  & .hotel-desc__text {
+    margin: 0;
   }
 
   & .hotel-desc__down-section {
     margin-top: 40px;
     margin-bottom: 40px;
+    display: flex;
 
     & .hotel-desc__price-date {
       margin-left: auto;
@@ -105,6 +107,7 @@ code {
 
       & .hotel-desc__price {
         font-size: 40px;
+        margin: 0;
       }
     }
   }
